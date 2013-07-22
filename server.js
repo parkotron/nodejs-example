@@ -32,7 +32,7 @@ console.log("Server running at http://" + ipaddr + ":" + port + "/");
 
 var express = require('express');
 var fs = require('fs');
-var app = express.createServer(express.logger());
+var app = express(express.logger());
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 app.get('/', function(request, response) {
