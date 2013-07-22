@@ -1,4 +1,4 @@
-#!/bin/env node
+/*#!/bin/env node
 //  OpenShift sample Node application
 var http = require('http');
 
@@ -28,3 +28,19 @@ http.createServer(function (req, res) {
   res.end("Your IP address seems to be " + addr + "\n");
 }).listen(port, ipaddr);
 console.log("Server running at http://" + ipaddr + ":" + port + "/");
+*/
+
+var express = require('express');
+var fs = require('fs');
+var app = express.createServer(express.logger());
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+
+app.get('/', function(request, response) {
+  var buffer = new Buffer(20);
+  buffer = fs.readFileSync("index.html");
+  response.send(buffer.toString());
+});
+
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
