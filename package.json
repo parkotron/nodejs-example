@@ -4,12 +4,12 @@
 	"description": "OpenShift Sample Application",
 
 	"engines": {
-	"node": ">= 0.6.0",
+	"node": ">= 0.10.0",
 	"npm": ">= 1.1.24"
 	},
 
 	"dependencies": {
-		"express" : "2.5.x" 
+		"express" : "3.x" 
 	},
 	"devDependencies": {},
 	"bundleDependencies": [],
